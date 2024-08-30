@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xylophone</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex justify-center items-center h-screen bg-gray-100">
+    <div id="xylophone" class="flex">
+      <div class="key bg-red-500" data-frequency="261.63"></div>
+      <div class="key bg-orange-500" data-frequency="293.66"></div>
+      <div class="key bg-yellow-500" data-frequency="329.63"></div>
+      <div class="key bg-green-500" data-frequency="349.23"></div>
+      <div class="key bg-blue-500" data-frequency="392.00"></div>
+      <div class="key bg-indigo-500" data-frequency="440.00"></div>
+      <div class="key bg-violet-500" data-frequency="493.88"></div>
+    </div>
+    <script src="main.js"></script>
+    <div class="text-center mt-4">
+      <h1 class="text-2xl font-bold">Xylophone</h1>
+      <p class="text-gray-700">Click on the colorful keys to play sounds!</p>
+    </div>
+  </body>
+</html>
