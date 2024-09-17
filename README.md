@@ -1,60 +1,31 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Xylophone</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .key {
-        width: 60px;
-        height: 200px;
-        display: inline-block;
-        margin: 5px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.2s;
-      }
-      .key:active {
-        transform: translateY(4px);
-        background-color: rgba(255, 255, 255, 0.5);
-      }
-    </style>
-  </head>
-  <body class="flex justify-center items-center h-screen bg-gray-100">
-    <div id="xylophone" class="flex">
-      <div class="key bg-red-500" data-frequency="261.63"></div>
-      <div class="key bg-orange-500" data-frequency="293.66"></div>
-      <div class="key bg-yellow-500" data-frequency="329.63"></div>
-      <div class="key bg-green-500" data-frequency="349.23"></div>
-      <div class="key bg-blue-500" data-frequency="392.00"></div>
-      <div class="key bg-indigo-500" data-frequency="440.00"></div>
-      <div class="key bg-violet-500" data-frequency="493.88"></div>
-    </div>
-    <script>
-      const keys = document.querySelectorAll(".key");
-      keys.forEach((key) => {
-        key.addEventListener("click", () => {
-          const frequency = key.getAttribute("data-frequency");
-          playSound(frequency);
-        });
-      });
-      function playSound(frequency) {
-        const audioContext = new (window.AudioContext ||
-          window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        oscillator.type = "sine";
-        oscillator.frequency.setValueAtTime(
-          frequency,
-          audioContext.currentTime
-        );
-        oscillator.connect(audioContext.destination);
-        oscillator.start();
-        oscillator.stop(audioContext.currentTime + 0.5);
-      }
-    </script>
-    <div class="text-center mt-4">
-      <h1 class="text-2xl font-bold">Xylophone</h1>
-      <p class="text-gray-700">Click on the colorful keys to play sounds!</p>
-    </div>
-  </body>
-</html>
+# Xylophone
+
+This project is a simple xylophone application built with HTML, CSS, and JavaScript. Click on the colorful keys to play sounds!
+
+## Project Structure
+
+- `index.html`: The main HTML file that contains the structure of the xylophone.
+- `style.css`: The CSS file that styles the xylophone keys.
+- `main.js`: The JavaScript file that handles the sound playing functionality.
+
+## CI/CD Pipeline
+
+This project uses GitHub Actions for Continuous Integration (CI) and Continuous Deployment (CD). The CI/CD pipeline is defined in the `.github/workflows/ci-cd.yml` file.
+
+### CI/CD Workflow
+
+The CI/CD workflow is triggered on every push and pull request to the `main` branch. It consists of three jobs:
+
+1. **Build**: This job checks out the repository, sets up Node.js, installs dependencies, and builds the project.
+2. **Test**: This job checks out the repository, sets up Node.js, installs dependencies, and runs tests.
+3. **Deploy**: This job checks out the repository, sets up Node.js, installs dependencies, builds the project, and deploys it to GitHub Pages.
+
+### Triggering the CI/CD Pipeline
+
+To trigger the CI/CD pipeline, simply push your changes to the `main` branch or create a pull request targeting the `main` branch. The pipeline will automatically run and execute the defined jobs.
+
+### GitHub Pages Release
+
+The CD pipeline includes a step to deploy the project to GitHub Pages. The deployment is done using the `peaceiris/actions-gh-pages` action. The built project is published to the `gh-pages` branch, which is then used to serve the GitHub Pages site.
+
+To view the GitHub Pages site, go to the repository settings, navigate to the "Pages" section, and ensure that the source branch is set to `gh-pages`.
