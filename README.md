@@ -28,4 +28,4 @@ To trigger the CI/CD pipeline, simply push your changes to the `main` branch or 
 
 The CD pipeline includes a step to deploy the project to GitHub Pages. The deployment is done using the `peaceiris/actions-gh-pages` action. The built project is published to the `gh-pages` branch, which is then used to serve the GitHub Pages site.
 
-To view the GitHub Pages site, go to the repository settings, navigate to the "Pages" section, and ensure that the source branch is set to `gh-pages`.
+To view the GitHub Pages site, go to the repository settings, navigate to the "Pages" section, and ensure that the source branch is set to `gh-pages`. 
